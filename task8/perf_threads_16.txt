@@ -1,0 +1,23 @@
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| gpt2 0.4B F16                  | 679.38 MiB |   354.82 M | BLAS       |      16 |           tg256 |         67.55 ± 0.42 |
+
+build: df70bedda (7009)
+
+ Performance counter stats for './build/bin/llama-bench -m ../../task2/gpt2-medium/gpt2-medium.gguf -p 0 -n 256 -t 16':
+
+   <not supported>      cpu_core/topdown-retiring/                                   
+   <not supported>      cpu_core/topdown-heavy-ops/                                   
+ 3,49,51,57,55,148      cpu_core/cpu-cycles/                                          (88.88%)
+ 1,97,54,49,19,788      cpu_core/instructions/                                        (88.88%)
+    8,47,60,62,114      cpu_core/cache-misses/                                        (88.88%)
+    9,41,32,55,316      cpu_atom/cache-misses/                                        (79.94%)
+   <not supported> MiB  uncore_imc_free_running_0/data_read/                                   
+   <not supported> MiB  uncore_imc_free_running_0/data_write/                                   
+
+      19.187111517 seconds time elapsed
+
+     303.367554000 seconds user
+       0.247934000 seconds sys
+
+
